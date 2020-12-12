@@ -1,0 +1,107 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- pc's -->
+    <record model="ir.ui.view" id="joinet_test.list">
+      <field name="name">joinetTest list</field>
+      <field name="model">joinet_test.joinet_test</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="marca"/>
+          <field name="direccion_mac"/>
+          <field name="direccion_anydesk"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- areas -->
+    <record model="ir.ui.view" id="joinet_test.list_areas">
+      <field name="name">joinetTest areas</field>
+      <field name="model">joinet_test.joinet_areas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- asignacion -->
+    <record model="ir.ui.view" id="joinet_test.list_asignacion">
+      <field name="name">joinetTest asignacion</field>
+      <field name="model">joinet_test.joinet_asignacion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="pc"/>
+          <field name="area"/>
+          <field name="ip"/>
+        </tree>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <!-- pcs -->
+    <record model="ir.actions.act_window" id="joinet_test.action_window">
+      <field name="name">joinetTest window</field>
+      <field name="res_model">joinet_test.joinet_test</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Áreas -->
+    <record model="ir.actions.act_window" id="joinet_test.action_window_area">
+      <field name="name">joinet_Areas window</field>
+      <field name="res_model">joinet_test.joinet_areas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Asignación -->
+    <record model="ir.actions.act_window" id="joinet_test.action_window_asignacion">
+      <field name="name">joinet_Asignacion window</field>
+      <field name="res_model">joinet_test.joinet_asignacion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="joinet_test.action_server">
+      <field name="name">joinetTest server</field>
+      <field name="model_id" ref="model_joinet_test_joinet_test"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="joinetTest" id="joinet_test.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="joinet Pc's" id="joinet_test.menu_1" parent="joinet_test.menu_root"/>
+    <menuitem name="joinet Impresoras" id="joinet_test.impresoras" parent="joinet_test.menu_root"/>
+    <menuitem name="joinet Red" id="joinet_test.red" parent="joinet_test.menu_root"/>
+
+    <menuitem name="joinet Áreas" id="joinet_test.areas" parent="joinet_test.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="joinet_test.menu_2" parent="joinet_test.menu_root"/> -->
+
+    <!-- actions -->
+    <!-- pcs -->
+    <menuitem name="Pc's" id="joinet_test.menu_1_list" parent="joinet_test.menu_1"
+              action="joinet_test.action_window"/>
+
+    <!-- Áreas -->
+    <menuitem name="Áreas" id="joinet_test.menu_2_list" parent="joinet_test.areas"
+              action="joinet_test.action_window_area"/>
+    <!-- asignacion -->
+    <menuitem name="Asignación" id="joinet_test.menu_3_list" parent="joinet_test.menu_1"
+              action="joinet_test.action_window_asignacion"/>
+    <!-- <menuitem name="Server to list" id="joinet_test" parent="joinet_test.menu_2"
+              action="joinet_test.action_server"/> -->
+
+  </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_joinet_test_joinet_test,joinet_test.joinet_test,model_joinet_test_joinet_test,base.group_user,1,1,1,1
+access_joinet_test_joinet_areas,joinet_test.joinet_areas,model_joinet_test_joinet_areas,base.group_user,1,1,1,1
+access_joinet_test_joinet_asignacion,joinet_test.joinet_asignacion,model_joinet_test_joinet_asignacion,base.group_user,1,1,1,1
